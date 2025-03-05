@@ -3,7 +3,8 @@ SQS-SNS-EventBridge Knowledge Hub
 
    
 1. Does SNS guarantee exactly-once delivery to subscribers?   
-No, Amazon SNS does not guarantee exactly-once delivery. While SNS ensures at least once delivery (meaning messages will be delivered to subscribers, but there may be retries in case of failure), it does not guarantee that each message is delivered only once. The system is designed to retry delivery in case of transient failures, and there is a possibility of message duplication under certain conditions (such as network issues or subscriber unavailability).
+No, Amazon SNS does not guarantee exactly-once delivery. While SNS ensures at least once delivery (meaning messages will be delivered to subscribers, but there may be retries in case of failure), it does not guarantee that each message is delivered only once.
+The system is designed to retry delivery in case of transient failures, and there is a possibility of message duplication under certain conditions (such as network issues or subscriber unavailability).
 If your application requires exactly-once processing, you will need to handle de-duplication on the subscriber side, either by storing a unique identifier with each message or using a deduplication mechanism.   
 
 
