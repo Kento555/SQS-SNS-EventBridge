@@ -3,16 +3,16 @@ SQS-SNS-EventBridge Knowledge Hub
 
    
 1. Does SNS guarantee exactly-once delivery to subscribers?   
-No, Amazon SNS does not guarantee exactly-once delivery. While SNS ensures at least once delivery (meaning messages will be delivered to subscribers, but there may be retries in case of failure), it does not guarantee that each message is delivered only once. The system is designed to retry delivery in case of transient failures, and there is a possibility of message duplication under certain conditions (such as network issues or subscriber unavailability).   
+No, Amazon SNS does not guarantee exactly-once delivery. While SNS ensures at least once delivery (meaning messages will be delivered to subscribers, but there may be retries in case of failure), it does not guarantee that each message is delivered only once. The system is designed to retry delivery in case of transient failures, and there is a possibility of message duplication under certain conditions (such as network issues or subscriber unavailability).
+
+    
 If your application requires exactly-once processing, you will need to handle de-duplication on the subscriber side, either by storing a unique identifier with each message or using a deduplication mechanism.   
 
 
       
 3. What is the purpose of the Dead-letter Queue (DLQ)?   
-A Dead-letter Queue (DLQ) is a feature that allows you to capture and store messages that couldn’t be processed successfully by the consumer or subscriber. This is useful for troubleshooting and debugging issues when messages fail to be delivered or processed.   
-   
+A Dead-letter Queue (DLQ) is a feature that allows you to capture and store messages that couldn’t be processed successfully by the consumer or subscriber. This is useful for troubleshooting and debugging issues when messages fail to be delivered or processed.      
 Purpose of DLQ:   
-   
 Error Handling: When messages cannot be successfully delivered or processed, they are sent to the DLQ after a predefined number of delivery attempts or processing failures.   
 Message Retention: DLQs allow you to retain these failed messages for further investigation, analysis, or later processing.   
 Monitoring: DLQs can be used to track errors in the message delivery process and monitor the health of your systems.   
