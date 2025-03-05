@@ -24,19 +24,16 @@ Create an SNS Topic for Notifications:
 Go to the SNS Console.   
 Create a new SNS topic that will be used for notifications.   
 Subscribe your email address to the SNS topic.      
-Create a CloudWatch Alarm for DLQ:      
-   
-Navigate to the CloudWatch Console.   
-Go to Alarms and click Create Alarm.   
+Create a CloudWatch Alarm for DLQ:   
+Navigate to the CloudWatch Console.    
+Go to Alarms and click Create Alarm.    
 For the metric, select the DLQ's metrics (you can find these under SQS metrics or SNS metrics, depending on your use case).   
 For SNS, you'd look for metrics like NumberOfMessagesSent or NumberOfMessagesInDeadLetterQueue.   
 Set the condition for the alarm to trigger when a certain threshold of messages appears in the DLQ (for example, if the number of messages in the DLQ exceeds 0).   
 Set SNS as the Alarm Action:   
-   
 In the alarm setup, specify the SNS topic you created in Step 1 as the action to take when the alarm state is triggered.   
 This will send a notification to your email whenever the DLQ receives messages.   
 Test the Setup:   
-   
 Send some messages to the service (SNS, SQS, EventBridge) that may end up in the DLQ, and verify that you receive an email notification when they are added to the DLQ.   
 By following these steps, you'll get an email notification whenever a message ends up in the DLQ, helping you monitor and address issues more effectively.    
    
