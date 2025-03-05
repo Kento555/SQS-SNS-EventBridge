@@ -20,12 +20,11 @@ DLQs are available for several AWS services, including SNS, SQS, and EventBridge
 5. How would you enable a notification to your email when messages are added to the DLQ?     
 To enable a notification to your email when messages are added to a Dead-letter Queue (DLQ), you can use Amazon CloudWatch Alarms in combination with SNS. The steps are as follows:   
 Step-by-step process:   
-Create an SNS Topic for Notifications:   
-   
+Create an SNS Topic for Notifications:
 Go to the SNS Console.   
 Create a new SNS topic that will be used for notifications.   
-Subscribe your email address to the SNS topic.   
-Create a CloudWatch Alarm for DLQ:   
+Subscribe your email address to the SNS topic.      
+Create a CloudWatch Alarm for DLQ:      
    
 Navigate to the CloudWatch Console.   
 Go to Alarms and click Create Alarm.   
@@ -39,4 +38,6 @@ This will send a notification to your email whenever the DLQ receives messages.
 Test the Setup:   
    
 Send some messages to the service (SNS, SQS, EventBridge) that may end up in the DLQ, and verify that you receive an email notification when they are added to the DLQ.   
-By following these steps, you'll get an email notification whenever a message ends up in the DLQ, helping you monitor and address issues more effectively.   
+By following these steps, you'll get an email notification whenever a message ends up in the DLQ, helping you monitor and address issues more effectively.    
+   
+
